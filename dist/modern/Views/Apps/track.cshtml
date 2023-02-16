@@ -1,0 +1,701 @@
+﻿@section styles {
+    <!-- Plugin css -->
+    <link href="~/lib/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css">
+    <link href="~/lib/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css">
+    @*<link href="~/css/app.css" rel="stylesheet" />*@
+}
+<div class="content">
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card track-wrapper">        
+                    <!--Modal button here-->
+                    <div class="button-list case-btn">
+                        <a class="btn btn-success" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Create A Case</a>
+                    </div>
+                    <!--Modal button here-->
+                    <div class="button-list dashboard-btn" id="dashboardBtn">
+                        <a class="btn btn-primary">Dashboard</a>
+                    </div>
+                    <!-- input field here -->
+                    <div class="mb-3 srch-bar">
+                        <div class="position-relative">
+                            <input type="search" class="form-control enlarged" placeholder="Search...">
+                            <button class="srch-icon" type="submit"><span class="mdi mdi-magnify"></span></button>
+                        </div>
+                    </div>
+                    <!-- title, fixed card and map here -->
+                    <div class="card-body card-wrapper">
+                        <h4 class="header-title sec-title">Track</h4>
+                        <!--Total incident reports tile here-->
+                        <div class="fixed-card-right" id="totalIncidentTile" style="display:none;">
+                            <span class="menu-arrow sh-arrow"></span>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="dropdown float-end">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="mdi mdi-dots-vertical"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="header-title mb-0">Total Incidents <span class="incident-counter">96</span></h4>
+                                    <hr class="brdr-btm">
+
+                                    <div class="widget-chart t-inc-wrapper" dir="ltr">
+                                        <h5 class="t-inc-title">Status</h5>
+                                        <div class="vounteers-incidents">
+                                            <p class="vounteer-title">Vounteers</p>
+                                            <p class="incidents-title">Incidents</p>
+                                            <hr class="brdr-btm">
+                                            <div class="graph-wrapper">
+                                                <div class="left">
+                                                    <div id="total-users" data-colors="#4a81d4,#fcc644,#e3eaef,#43bfe5"></div>
+                                                    <p class="counts-drk">78<span>&nbsp;&nbsp;&nbsp;Total</span></p>
+                                                    <p class="counts">28<span>&nbsp;&nbsp;&nbsp; Online</span></p>
+                                                </div>
+                                                <div class="right">
+                                                    <div id="status-chart"></div>
+                                                    @*<div id="total-users" data-colors="#4a81d4,#fcc644,#e3eaef,#43bfe5"></div>*@
+                                                    @*<div id="total-revenue" class="mt-0" data-colors="#5671f0" style="width:100px; height:100px;"></div>*@
+                                                    <p class="counts-drk">96<span>&nbsp;&nbsp;&nbsp;&nbsp; Closed</span></p>
+                                                    <p class="counts">0<span>&nbsp;&nbsp;&nbsp; Open</span></p>
+                                                </div>
+                                            </div>
+                                            <hr class="brdr-btm mt-2">
+                                        </div>
+                                        <h5 class="t-inc-title">Location</h5>
+                                        <div class="location-wrapper">
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                            <div class="loc-name">
+                                                <p>Location name here....</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <!-- end card -->
+                        </div> 
+                        <!--chat control herer-->
+                        <div class="chat-control-wrapper" style="display:none;">
+                            <!--close button-->
+                            <button type="button" id="ChatControlCloseBtn" class="btn-close ipw-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <!-- chat area -->
+                            <div class="col-xs-4">
+                                <div class="card">
+                                    <div class="card-body py-2 px-3 border-bottom border-light">
+                                        <div class="row justify-content-between py-1">
+                                            <div class="col-sm-10">
+                                                <div class="d-flex align-items-start">
+                                                    <img src="~/images/users/user-5.jpg" class="me-2 rounded-circle" height="36" alt="Brandon Smith">
+                                                    <div>
+                                                        <h5 class="mt-0 mb-0 font-15">
+                                                            <a href="contacts-profile.html" class="text-reset">James Zavel</a>
+                                                        </h5>
+                                                        <p class="mt-1 mb-0 text-muted font-12">
+                                                            <small class="mdi mdi-circle text-success"></small> Online
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div id="tooltips-container">
+                                                    <a href="javascript: void(0);" class="text-reset font-19 py-1 px-2 d-inline-block mr-auto">
+                                                        <i class="fe-phone-call" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Voice Call"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="conversation-list" data-simplebar="" style="max-height: 304px;">
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-5.jpg" class="rounded" alt="James Z">
+                                                    <i>10:00</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            Hello!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix odd">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-1.jpg" class="rounded" alt="Geneva M">
+                                                    <i>10:01</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>Geneva M</i>
+                                                        <p>
+                                                            Hi, How are you? What about our next meeting?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-5.jpg" class="rounded" alt="James Z">
+                                                    <i>10:01</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            Yeah everything is fine
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix odd">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-1.jpg" class="rounded" alt="Geneva M">
+                                                    <i>10:02</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>Geneva M</i>
+                                                        <p>
+                                                            Wow that's great
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-5.jpg" alt="James Z" class="rounded">
+                                                    <i>10:02</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            Let's have it today if you are free
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix odd">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-1.jpg" alt="Geneva M" class="rounded">
+                                                    <i>10:03</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>Geneva M</i>
+                                                        <p>
+                                                            Sure thing! let me know if 2pm works for you
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-5.jpg" alt="James Z" class="rounded">
+                                                    <i>10:04</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            Sorry, I have another meeting scheduled at 2pm. Can we have it at 3pm instead?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-5.jpg" alt="James Z" class="rounded">
+                                                    <i>10:04</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            We can also discuss about the presentation talk format if you have some extra mins
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix odd">
+                                                <div class="chat-avatar">
+                                                    <img src="~/images/users/user-1.jpg" alt="Geneva M" class="rounded">
+                                                    <i>10:05</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>Geneva M</i>
+                                                        <p>
+                                                            3pm it is. Sure, let's discuss about presentation format, it would be great to finalize today. I am attaching the last year format and assets here...
+                                                        </p>
+                                                    </div>
+                                                    <div class="card mt-2 mb-1 shadow-none border text-start">
+                                                        <div class="p-2">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div class="avatar-sm">
+                                                                        <span class="avatar-title bg-primary rounded">
+                                                                            .ZIP
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col ps-0">
+                                                                    <a href="javascript:void(0);" class="text-muted fw-bold">UBold-sketch.zip</a>
+                                                                    <p class="mb-0">2.3 MB</p>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <!-- Button -->
+                                                                    <a href="javascript:void(0);" class="btn btn-link btn-lg text-muted">
+                                                                        <i class="dripicons-download"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link p-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical font-16"></i></button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mt-2 bg-light p-2 rounded">
+                                                    <form class="needs-validation" novalidate="" name="chat-form" id="chat-form">
+                                                        <div class="row">
+                                                            <div class="col mb-2 mb-sm-0">
+                                                                <input type="text" class="form-control border-0" placeholder="Enter your text" required="">
+                                                                <div class="invalid-feedback">
+                                                                    Please enter your messsage
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-auto">
+                                                                <div class="btn-group">
+                                                                    <button type="submit" class="btn btn-success chat-send w-100"><i class="fe-send"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- end col -->
+                                                        </div>
+                                                        <!-- end row-->
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- end col-->
+                                        </div>
+                                        <!-- end row -->
+                                    </div>
+                                    <!-- end card-body -->
+                                </div> <!-- end card -->
+                            </div>
+                            <!-- end chat area-->
+                        </div>
+                        <div class="col-md-12 mb-3 map-wrapper">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462562.650960438!2d54.947294892116!3d25.075759453120334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1675864612107!5m2!1sen!2sin" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <!--Full width bottom modal-->
+                    <div id="IncidentPersonWrapper" style="display:none;">
+                        @*<button type="button" class="btn-close ipw-close-btn" id="IncidentPersonsCloseBtn" data-bs-dismiss="modal" aria-label="Close"></button>*@
+                        <div class="incident-person-inner-wrapper">
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-2.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-10.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                    <span class="active-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-3.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-4.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                    <span class="active-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-1.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="active-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-5.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-7.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                    <span class="active-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-8.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-9.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                    <span class="active-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-6.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                    <span class="active-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-10.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-11.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                            <!--person wrapper here-->
+                            <div class="single-person-wrapper">
+                                <div class="indicator-wrapper">
+                                    <span class="inactive-indicator"></span>
+                                    <span class="active-indicator"></span>
+                                </div>
+                                <div class="incident-person-detail">
+                                    <img src="/images/users/user-1.jpg" alt="image" class="img-fluid rounded-circle" width="120">
+                                    <p>Rashad Gamar ahmed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--First Modal-->
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalToggleLabel">Open Case</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2">
+                <div class="row">
+                    <div id="PriorityAddressFields">
+                        <div class="col-md-12 mb-1">
+                            <label for="example-select" class="form-label">Priority</label>
+                            <select class="form-select" id="example-select">
+                                <option>--Select--</option>
+                                <option>High</option>
+                                <option>Medium</option>
+                                <option>Low</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label for="inputlocation" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="inputlocation" placeholder="Location">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Second Modal-->
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white ml-auto" id="exampleModalToggleLabel2">Incident#: 126</h5>
+                <h5 class="modal-title text-white ml-auto" id="exampleModalToggleLabel2">Time: Oct 20, 2020</h5>
+                <h5 class="modal-title text-white" id="exampleModalToggleLabel2">Dubai <span><i class="mdi mdi-map-marker"></i></span></h5>
+                @*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>*@
+            </div>
+            <div class="modal-body p-2">
+                <div class="row">
+                    <div id="PriorityAddressFields">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <select class="form-select" id="example-select">
+                                    <option>Insurance</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <select class="form-select" id="example-select">
+                                    <option>Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <select class="form-select" id="example-select">
+                                    <option>High</option>
+                                    <option>Medium</option>
+                                    <option>Low</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <input type="text" class="form-control" id="inputlocation" placeholder="Name">
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <input type="number" class="form-control" id="inputlocation" placeholder="784-____-_______-__">
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <input type="number" class="form-control" id="inputlocation" placeholder="784-____-_______-__">
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <input type="text" class="form-control" id="inputlocation" placeholder="Policy No.">
+                        </div>
+                        <div class="col-md-12 modal-btm-ldng-wrapper">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <div class="modal-btm-ldng-inner-wrapper">
+                                        <h4 class="header-title">Unfortunately,<br />something went wrong.</h4>
+                                        <p class="sub-header font-13">
+                                            We're trying to fix this.<br /><br />
+                                            Reconnecting in 26 sec...
+                                        </p>
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- end card-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="submitBtn" data-bs-target="#bottom-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
+                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <!-- Plugins -->
+    <script src="~/lib/flatpickr/flatpickr.min.js"></script>
+    <script src="~/lib/apexcharts/apexcharts.min.js"></script>
+    <script src="~/lib/selectize/js/standalone/selectize.min.js"></script>
+    <script src="~/js/pages/dashboard-1.init.js"></script>
+    <script src="~/lib/morris.js06/morris.min.js"></script>
+    <script src="~/lib/raphael/raphael.min.js"></script>
+    <script src="~/lib/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/lib/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/lib/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="~/js/pages/dashboard-2.init.js"></script>
+    <script src="~/js/pages/crm-opportunities.init.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#dashboardBtn").click(function () {
+                $("#totalIncidentTile").toggle();
+            });
+            $("#submitBtn").click(function () {
+                $("#IncidentPersonWrapper").show();
+            });
+            $(".single-person-wrapper").click(function () {
+                $(".chat-control-wrapper").toggle();
+            });
+            $("#ChatControlCloseBtn").click(function () {
+                $(".chat-control-wrapper").hide();
+            });
+        });
+    </script>
+}

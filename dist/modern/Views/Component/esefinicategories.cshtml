@@ -1,0 +1,112 @@
+@section styles {
+    <!-- Plugin css -->
+    <link href="~/lib/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" type="text/css">
+}
+
+<div class="content">
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Categories</h4>
+                        <div class="mb-2">
+                            <div class="row row-cols-sm-auto g-2 align-items-center">
+                                <div class="col-12 text-sm-center"> 
+                                   @* <a asp-controller="component" class="btn btn-primary" asp-action="add-category"><i class="mdi mdi-plus-circle me-2"></i> Add New</a>*@
+                                    <div class="button-list">
+                                        <!-- Responsive modal -->
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="mdi mdi-plus-circle me-2"></i> Add New</button>
+                                        <!-- Accordion modal -->
+                                         
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <table data-toggle="table" data-page-size="5" data-buttons-class="xs btn-light" data-pagination="true" class="table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th data-field="Category">Category</th>
+                                    <th data-field="ID">ID</th>
+                                    <th data-field="user-status">Status</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hospital</td>
+                                    <td>1</td>
+                                    <td><span class="badge label-table bg-success">Active</span></td>
+                                    <td><i class="ti-layout-menu-separated"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Clinics</td>
+                                    <td>2</td>
+                                    <td><span class="badge label-table bg-success">Active</span></td>
+                                    <td><i class="ti-layout-menu-separated"></i></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+        </div>
+
+        <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Category</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="field-1" class="form-label">Category</label>
+                                    <input type="text" class="form-control" id="field-1" placeholder="category name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">                                     
+                                    <label for="customStatus" class="form-label">Status</label> 
+                                    <input type="checkbox" class="form-control form-check-input" id="customStatus">
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>                        
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#success-alert-modal">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Success Alert Modal -->
+        <div id="success-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content modal-filled bg-success">
+                    <div class="modal-body p-4">
+                        <div class="text-center">
+                            <i class="dripicons-checkmark h1 text-white"></i>
+                            <h6 class="mt-2 text-white">Category Save Successfully!</h6>                             
+                            <button type="button" class="btn btn-light my-2" data-bs-dismiss="modal">Continue</button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div> <!-- container -->
+
+</div>
+
+@section scripts {
+    <!-- Plugins -->
+    <script src="~/lib/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="~/js/pages/bootstrap-tables.init.js"></script>
+}
